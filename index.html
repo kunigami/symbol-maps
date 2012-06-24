@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+<title>Symbol Maps</title> 
+
+ <!-- <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" /> -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="symbolmaps.js"></script>
+<script type="text/javascript" src="fileHandler.js"></script>
+
+</head> 
+
+<body onload="initialize();">
+
+
+<br /><br /><br /><br />
+<center>
+
+<a name="top"><h1>Symbol Maps Plotter</h1></a>
+
+<table cellpadding="0px" cellspacing="10px">
+<tr>
+<td style="border: 1px solid;">
+
+<div id="map_canvas" style="width:600px; height:480px"></div>
+
+</td>
+
+<td style="border: 1px solid; padding-left:10px">
+	
+<h3>Messages</h3>
+
+<table>
+<tr>
+  <td>
+    Scale factor:
+  </td>
+  <td>
+    <input type="text" size='3' id="propfactor" name="propfactor" value="0.5"/>
+    <input id="output_button" onclick="DecreaseRadius()" type=button value="-" style="width:30px;" />
+    <input id="output_button" onclick="IncreaseRadius()" type=button value="+" style="width:30px;" />
+    <br />
+  </td>
+</tr>
+
+<tr>
+  <td>
+    Number of cities:
+  </td>
+  <td>
+    <input type="text" size='3' id="maxcities" name="maxcities" value="0"/>
+    <i><span id="limit_exceeded"></span></i>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <input id="update" onclick="Update()" type=button value="Refresh"/><br />
+  </td>
+  <td>
+  </td>
+</tr>
+
+</table>
+
+<h3>Actions</h3>
+
+<input id="polygon_button" onclick="AllowPolygon()" type=button value="Delimit area" disabled=true /><br />
+<input id="filter_button" onclick="FilterRegion()" type=button value="Filter regions" disabled=true /><br />
+
+<h3>Upload file</h3>
+
+<table>
+
+<tr>
+  <td>
+    <label for="file">File (.csv): </label>
+  </td>
+  <td>
+    <input type="file" name="file" id="file" />
+  </td>
+</tr>
+
+<tr>
+  <td>
+    or select from a list:
+  </td>
+
+  <td>
+    <select id="instanceList">
+    </select>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <br />
+    <input type="submit" name="submit" value="Upload" onclick="readFile()" />  
+  </td>
+
+  <td>
+  </td>
+</tr>
+
+</table>
+
+
+</td>
+</tr>
+
+</table>
+
+</center>
+
+</body> 
+</html> 
